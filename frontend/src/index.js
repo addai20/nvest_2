@@ -8,13 +8,19 @@ addEventListener("DOMContentLoaded", ()=> {
   //   // listen for setState
   // })
   loopFetch()
+
+  })
 // research setTimeout() LEFT OFF HERE
   function loopFetch(){
     setInterval(getStocks(), 2000)
   }
 
 
+  function initDataFlow(){
+    setInterval()
+  }
 
+  // style="display: none;"
   function getStocks(){
     console.log("function: getStocks working!")
     const baseURL = "https://cloud.iexapis.com/beta/tops?token=pk_72911ae29fff44d0884ff40f905f7cdb&symbols="
@@ -22,7 +28,7 @@ addEventListener("DOMContentLoaded", ()=> {
     let stocksContainer = []
 
     // loop through stock symbols
-    sampleStocks.forEach((stock)=> {
+    sampleStocks.map((stock)=> {
 
       fetch(baseURL+stock)
         .then(function(response) {
@@ -61,5 +67,3 @@ addEventListener("DOMContentLoaded", ()=> {
     //concatenate each stock symbol to the end of base URL
     console.log(stocksContainer)
   }
-
-})
