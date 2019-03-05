@@ -19,9 +19,10 @@ body {
   border: solid;
   position: absolute;
   left: 5%;
-  height: 600px;
+  height: 825px;
   width: 400px;
   overflow-y: scroll;
+  margin-bottom: 50px
 
 }
 

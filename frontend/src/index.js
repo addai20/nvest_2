@@ -7,13 +7,34 @@ addEventListener("DOMContentLoaded", ()=> {
   // addEventListener.onSetState("setState", ()=> {
   //   // listen for setState
   // })
-  loopFetch()
+  debugger
+  marketOpen();
+  getStocks();
 
   })
 // research setTimeout() LEFT OFF HERE
-  function loopFetch(){
-    // console.log("loop fetch working!");
-    setInterval(getStocks(), 2000)
+  // function loopFetch(){
+  //   // console.log("loop fetch working!");
+  //   setInterval(getStocks(), 2000)
+  // }
+
+  function marketOpen(){
+    // return true if time is between 9:30 and 4 PM
+    let now = new Date()
+
+    let hours = now.getHours()
+    let minutes = now.getMinutes()
+
+    if(hours === 9 && minutes > 30){
+      return true;
+    }else if (hours > 9 && hours < 16) {
+      return true
+    }else{
+      return false
+    }
+
+
+    // debugger
   }
 
 
@@ -57,7 +78,6 @@ addEventListener("DOMContentLoaded", ()=> {
           // store stock in stocksContainer
             //note: this fetch returns an object nested within an array!
           // console.log(stockInfo[0])
-          stocksContainer.push(stockInfo[0])
           // store ul in a variable
           let ul = document.querySelector('.stocks_list')
           ul.classList.add("list-group")
@@ -74,7 +94,7 @@ addEventListener("DOMContentLoaded", ()=> {
             // add event listeners to buttons
 
           let buySelldiv = document.createElement('div')
-          
+
           let buyBtn = document.createElement('button')
             buyBtn.innerText = "BUY"
             buyBtn.addEventListener("click", ()=> {
@@ -86,8 +106,6 @@ addEventListener("DOMContentLoaded", ()=> {
             sellBtn.addEventListener("click", ()=> {
               sellOrder()
             })
-
-
 
 
           // append li to the
