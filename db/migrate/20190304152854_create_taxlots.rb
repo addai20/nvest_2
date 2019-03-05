@@ -1,10 +1,10 @@
 class CreateTaxlots < ActiveRecord::Migration[5.2]
   def change
     create_table :taxlots do |t|
-      t.integer :cost_basis
+      t.integer :account_id
+      t.integer :security_id
       t.integer :quantity
-      t.string :buy_date
-      t.string :sell_date
+      t.integer :price
 
       t.timestamps
     end

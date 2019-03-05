@@ -1,9 +1,30 @@
-class SecuritiesController < ApplicationController
+class TaxlotsController < ApplicationController
+
   def index
-    render json: Taxlot.all
+    @taxlots = Taxlot.all
+    render json: Security.all
+
   end
 
   def show
-    render json: Taxlot.find(params[:id])
+    @taxlot = Taxlot.all.find(params[:id])
+  end
+
+
+  private
+
+  def strong_params
+    params.permit(:taxlot).require(
+      :account_id,
+      :security_id,
+      :quantity,
+      :price
+    )
   end
 end
+
+
+# t.integer :account_id
+# t.integer :security_id
+# t.integer :quantity
+# t.integer :price
