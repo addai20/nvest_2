@@ -36,6 +36,8 @@ require 'pry'
 benjamin = Investor.create(firstName: 'Benjamin' , lastName: 'Addai', email: 'ben@nvest.com' , un: 'BigMoneyMoves', pw: 'localhost3000', dob:'03-12-1992', available_cash: 100000000, risk_tolerance: 'aggressive', sectors: ["tech", "finance", "medical"]  )
 
 brokerage = Account.create( investor_id: 1, name: 'NVest Brokerage', account_type: 'brokerage')
+ira = Account.create( investor_id: 1, name: 'NVest IRA', account_type: 'IRA')
+ira = Account.create( investor_id: 1, name: 'NVest ESA', account_type: 'ESA')
 
 securitiesArr = [
   ["aapl", "stock", "technology"],
@@ -51,17 +53,28 @@ securitiesArr = [
   ["T", "stock", "telecom"]
 ]
 
-securitiesArr.each do |security| => Security.create(symbol: security[0], asset_type: security[1], sector: security[2]))
-end
+securitiesArr.each {|security| Security.create(symbol: security[0], asset_type: security[1], sector: security[2])}
+
 aaplTaxLot = Taxlot.create
 
 arr = [1,2,3,4,5]
 arr1 = []
 arr.each do |ele|
-  arr1 << ele
+  arr1 << ele*3
 end
-puts arr
+puts arr1
+
+taxlotsArr = [
+  [account_id: 1, security_id:1, quantity: 20, price: 18000],
+  [account_id: 1, security_id:2, quantity: 15, price: 120000],
+  [account_id: 1, security_id:3, quantity: 100, price: 5500],
+  [account_id: 1, security_id:4, quantity: 25, price: 2700],
+  [account_id: 1, security_id:5, quantity: 20, price: 18000],
+  [account_id: 1, security_id:6, quantity: 20, price: 18000],
+
+]
 
 
+const sampleStocks = ["aapl", "amzn", "boa", "SNAP", "BRK.B", "baba", "fb", "adbe", "JPM", "F", "T"]
 
 puts (benjamin)
